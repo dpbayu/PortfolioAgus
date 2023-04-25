@@ -1,6 +1,7 @@
 <!-- PHP -->
 <?php
 require 'function.php';
+// User
 $query = "SELECT * FROM tbl_user, tbl_service";
 $run = mysqli_query($db,$query);
 $user = mysqli_fetch_array($run);

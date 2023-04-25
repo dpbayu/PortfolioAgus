@@ -49,18 +49,26 @@
             <div class='section-header'>
                 <h2>My <strong class='color'>Services</strong></h2>
             </div>
-            <div class='row'>
-                <div class='col-md-4'>
-                    <div class='service'>
+            <div class='row d-flex justify-content-center'>
+                <?php 
+                $query6 = "SELECT * FROM tbl_service";
+                $run6 = mysqli_query($db,$query6);
+                while ($service = mysqli_fetch_array($run6)){
+                ?>
+                <div class='col-md-4 mb-3 d-flex justify-content-center'>
+                    <div class='service w-100'>
                         <div class='icon'>
                             <i class='icon-basic-photo'></i>
                         </div>
                         <div class='content'>
-                            <h4><?= $user['title_service'] ?></h4>
-                            <p><?= $user['desc_service'] ?></p>
+                            <h4><?= $service['title_service'] ?></h4>
+                            <p><?= $service['desc_service'] ?></p>
                         </div>
                     </div>
                 </div>
+                <?php 
+                }
+                ?>
             </div>
         </div>
     </div>
