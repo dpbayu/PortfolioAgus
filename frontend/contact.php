@@ -44,25 +44,16 @@
                 <div class='col-md-4'>
                     <div class='contact-info-icons'>
                         <div class='contact-info'>
-                            <i class='ion-ios-location-outline'></i>
-                            <p>
-                                1254 Patterson Street<br>
-                                Houston, TX 77025
-                            </p>
+                            <i class="bi bi-house fs-3"></i>
+                            <p><?= $user['residence'] ?></p>
                         </div>
                         <div class='contact-info'>
-                            <i class='ion-ios-telephone-outline'></i>
-                            <p>
-                                (+123) 713-295-4383<br>
-                                (+123) 913-295-2583
-                            </p>
+                            <i class="bi bi-telephone fs-3"></i>
+                            <p><?= $user['phone'] ?></p>
                         </div>
                         <div class='contact-info'>
-                            <i class='ion-android-globe'></i>
-                            <p>
-                                www.google.com<br>
-                                www.example.com
-                            </p>
+                            <i class="bi bi-envelope fs-3"></i>
+                            <p><?= $user['email'] ?></p>
                         </div>
                     </div>
                 </div>
