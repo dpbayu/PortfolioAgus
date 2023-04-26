@@ -12,11 +12,11 @@
     <i class="fas fa-angle-up"></i>
 </a>
 <!-- JS Start -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="js/sb-admin-2.min.js"></script>
-<script src="vendor/chart.js/Chart.min.js"></script>
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="assets/js/sb-admin-2.min.js"></script>
+<script src="assets/vendor/chart.js/Chart.min.js"></script>
+<script src="assets/js/demo/chart-area-demo.js"></script>
+<script src="assets/js/demo/chart-pie-demo.js"></script>
 <!-- JS End -->

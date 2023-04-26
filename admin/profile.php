@@ -1,10 +1,7 @@
 <!-- PHP -->
 <?php
 require '../function.php';
-$page = 'home';
-$user = "SELECT * FROM tbl_user";
-$run = mysqli_query($db,$user);
-$user_data = mysqli_fetch_array($run);
+$page = 'profile';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -27,26 +24,12 @@ $user_data = mysqli_fetch_array($run);
                 <!-- Topbar Start -->
                 <?php require 'partials/topbar.php' ?>
                 <!-- Topbar End -->
-                <!-- Content Start -->
                 <div class="container-fluid">
+                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Home</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Profile</h1>
                     </div>
-                    <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="fullname">Fullname</label>
-                            <input class="form-control" type="text" id="fullname" name="fullname"
-                                value="<?= $user_data['fullname'] ?>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="home_desc">Home Description</label>
-                            <input class="form-control" type="text" id="home_desc" name="home_desc"
-                                value="<?= $user_data['home_desc'] ?>">
-                        </div>
-                        <button type="submit" name="update-home" class="btn btn-success me-2">Update</button>
-                    </form>
                 </div>
-                <!-- Content End -->
             </div>
             <!-- Main Content End -->
             <!-- Logout Modal Start-->
