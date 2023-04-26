@@ -51,9 +51,9 @@
             </div>
             <div class='row d-flex justify-content-center'>
                 <?php 
-                $query6 = "SELECT * FROM tbl_service";
-                $run6 = mysqli_query($db,$query6);
-                while ($service = mysqli_fetch_array($run6)){
+                $query_service = "SELECT * FROM tbl_service";
+                $run_service = mysqli_query($db,$query_service);
+                while ($service = mysqli_fetch_array($run_service)){
                 ?>
                 <div class='col-md-4 mb-3 d-flex justify-content-center'>
                     <div class='service w-100'>
@@ -82,46 +82,22 @@
                 </h2>
             </div>
             <div class='row'>
-                <div class='col-md-6'>
+                <?php 
+                $query_skill = "SELECT * FROM tbl_skill";
+                $run_skill = mysqli_query($db,$query_skill);
+                while ($skill = mysqli_fetch_array($run_skill)){
+                ?>
+                <div class='col-md-6 mb-3'>
                     <div class='skill'>
-                        <h4>HTML/CSS</h4>
+                        <h4><?= $skill['skill_name'] ?></h4>
                         <div class='bar'>
-                            <div class='percent' style='width:85%;'></div>
-                        </div>
-                    </div>
-                    <div class='skill'>
-                        <h4>php</h4>
-                        <div class='bar'>
-                            <div class='percent' style='width:90%;'></div>
-                        </div>
-                    </div>
-                    <div class='skill'>
-                        <h4>jQuery</h4>
-                        <div class='bar'>
-                            <div class='percent' style='width:75%;'></div>
+                            <div class='percent' style='width:<?= $skill['skill_bar'] ?>%;'></div>
                         </div>
                     </div>
                 </div>
-                <div class='col-md-6'>
-                    <div class='skill'>
-                        <h4>JavaScript</h4>
-                        <div class='bar'>
-                            <div class='percent' style='width:85%;'></div>
-                        </div>
-                    </div>
-                    <div class='skill'>
-                        <h4>WordPress</h4>
-                        <div class='bar'>
-                            <div class='percent' style='width:90%;'></div>
-                        </div>
-                    </div>
-                    <div class='skill'>
-                        <h4>SEO</h4>
-                        <div class='bar'>
-                            <div class='percent' style='width:75%;'></div>
-                        </div>
-                    </div>
-                </div>
+                <?php 
+                }
+                ?>
             </div>
         </div>
     </div>

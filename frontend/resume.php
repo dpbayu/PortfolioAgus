@@ -5,48 +5,26 @@
                 <h2>My <strong class='color'>Education</strong></h2>
             </div>
             <ul class='timeline'>
+                <?php 
+                    $query_education = "SELECT * FROM tbl_resume";
+                    $run_education = mysqli_query($db,$query_education);
+                    while ($education = mysqli_fetch_array($run_education)){
+                    if ($education['type_resume'] == 'e'){
+                ?>
                 <li>
                     <div class='timeline-content'>
-                        <h4>CSS College Larkana</h4>
+                        <h4><?= $education['org_resume'] ?></h4>
                         <em>
-                            <span>Masters Degree</span>
-                            <span>2013-2016</span>
+                            <span><?= $education['title_resume'] ?></span>
+                            <span><?= $education['time_resume'] ?></span>
                         </em>
-                        <p>
-                            Lorem ipsum dolor sit amet, id electram reprimique his, dicta saepe oporteat eos
-                            an, esse erat doming at lam. Nec quodsi suscipiantur an, ad graece nemore
-                            ocurreret lam, agam ipsum meliore quo ut.
-                        </p>
+                        <p><?= $education['desc_resume'] ?></p>
                     </div>
                 </li>
-                <li>
-                    <div class='timeline-content'>
-                        <h4>CSS College Larkana</h4>
-                        <em>
-                            <span>Masters Degree</span>
-                            <span>2013-2016</span>
-                        </em>
-                        <p>
-                            Lorem ipsum dolor sit amet, id electram reprimique his, dicta saepe oporteat eos
-                            an, esse erat doming at lam. Nec quodsi suscipiantur an, ad graece nemore
-                            ocurreret lam, agam ipsum meliore quo ut.
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <div class='timeline-content'>
-                        <h4>CSS College Larkana</h4>
-                        <em>
-                            <span>Masters Degree</span>
-                            <span>2013-2016</span>
-                        </em>
-                        <p>
-                            Lorem ipsum dolor sit amet, id electram reprimique his, dicta saepe oporteat eos
-                            an, esse erat doming at lam. Nec quodsi suscipiantur an, ad graece nemore
-                            ocurreret lam, agam ipsum meliore quo ut.
-                        </p>
-                    </div>
-                </li>
+                <?php
+                }
+                }
+                ?>
             </ul>
         </div>
     </div>
@@ -58,48 +36,26 @@
                 <h2>My <strong class='color'>Experience</strong></h2>
             </div>
             <ul class='timeline'>
+                <?php 
+                    $query_education = "SELECT * FROM tbl_resume";
+                    $run_education = mysqli_query($db,$query_education);
+                    while ($education = mysqli_fetch_array($run_education)){
+                    if ($education['type_resume'] == 'p'){
+                ?>
                 <li>
                     <div class='timeline-content'>
-                        <h4>CSS College Larkana</h4>
+                        <h4><?= $education['org_resume'] ?></h4>
                         <em>
-                            <span>Masters Degree</span>
-                            <span>2013-2016</span>
+                            <span><?= $education['title_resume'] ?></span>
+                            <span><?= $education['time_resume'] ?></span>
                         </em>
-                        <p>
-                            Lorem ipsum dolor sit amet, id electram reprimique his, dicta saepe oporteat eos
-                            an, esse erat doming at lam. Nec quodsi suscipiantur an, ad graece nemore
-                            ocurreret lam, agam ipsum meliore quo ut.
-                        </p>
+                        <p><?= $education['desc_resume'] ?></p>
                     </div>
                 </li>
-                <li>
-                    <div class='timeline-content'>
-                        <h4>CSS College Larkana</h4>
-                        <em>
-                            <span>Masters Degree</span>
-                            <span>2013-2016</span>
-                        </em>
-                        <p>
-                            Lorem ipsum dolor sit amet, id electram reprimique his, dicta saepe oporteat eos
-                            an, esse erat doming at lam. Nec quodsi suscipiantur an, ad graece nemore
-                            ocurreret lam, agam ipsum meliore quo ut.
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <div class='timeline-content'>
-                        <h4>CSS College Larkana</h4>
-                        <em>
-                            <span>Masters Degree</span>
-                            <span>2013-2016</span>
-                        </em>
-                        <p>
-                            Lorem ipsum dolor sit amet, id electram reprimique his, dicta saepe oporteat eos
-                            an, esse erat doming at lam. Nec quodsi suscipiantur an, ad graece nemore
-                            ocurreret lam, agam ipsum meliore quo ut.
-                        </p>
-                    </div>
-                </li>
+                <?php
+                }
+                }
+                ?>
             </ul>
         </div>
     </div>
