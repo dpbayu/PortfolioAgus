@@ -1,7 +1,7 @@
 <!-- PHP -->
 <?php
 require '../function.php';
-$page = 'home';
+$page = 'about';
 $user = "SELECT * FROM tbl_user";
 $run = mysqli_query($db,$user);
 $user_data = mysqli_fetch_array($run);
@@ -30,7 +30,7 @@ $user_data = mysqli_fetch_array($run);
                 <!-- Content Start -->
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Home</h1>
+                        <h1 class="h3 mb-0 text-gray-800">About</h1>
                     </div>
                     <?php
                     if (isset($_GET['success'])) {
@@ -50,13 +50,46 @@ $user_data = mysqli_fetch_array($run);
                         </div>';
                     }
                     ?>
-                    <form class="forms-sample" action="function.php" method="POST">
+                    <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group mb-3">
-                            <label class="form-label" for="home_desc">Home Description</label>
-                            <textarea class="form-control" id="home_desc"
-                                name="home_desc"><?= $user_data['home_desc'] ?></textarea>
+                            <label class="form-label" for="fullname">Fullname</label>
+                            <input class="form-control" type="text" id="fullname" name="fullname"
+                                value="<?= $user_data['fullname'] ?>">
                         </div>
-                        <button type="submit" name="update-home" class="btn btn-success me-2">Update</button>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="job">Job</label>
+                            <input class="form-control" type="text" id="job" name="job"
+                                value="<?= $user_data['job'] ?>">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="type_job">Job Type</label>
+                            <select class="form-control" name="type_job" id="type_job">
+                                <option value="Full Time" <?= $user_data['type_job'] == "Full Time" ? "selected" : '' ?>>Full Time</option>
+                                <option value="Part Time" <?= $user_data['type_job'] == "Part Time" ? "selected" : '' ?>>Part Time</option>
+                                <option value="Freelance" <?= $user_data['type_job'] == "Freelance" ? "selected" : '' ?>>Freelance</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="birth_date">Birth Date</label>
+                            <input class="form-control" type="date" id="birth_date" name="birth_date"
+                                value="<?= date('Y-m-d',strtotime($user_data["birth_date"])) ?>">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="residence">Residence</label>
+                            <input class="form-control" type="text" id="residence" name="residence"
+                                value="<?= $user_data['residence'] ?>">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="about_desc">About Description</label>
+                            <textarea class="form-control" id="about_desc"
+                                name="about_desc"><?= $user_data['about_desc'] ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="pdf_cv">Upload CV</label>
+                            <input type="file" class="form-control file-upload-info" id="pdf_cv" name="pdf_cv"
+                                placeholder="Upload PDF">
+                        </div>
+                        <button type="submit" name="update-about" class="btn btn-success me-2">Update</button>
                     </form>
                 </div>
                 <!-- Content End -->

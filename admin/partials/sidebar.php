@@ -13,10 +13,10 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Home</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item <?php if ($page == 'about'){ echo 'active'; } ?>">
+        <a class="nav-link" href="about.php">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+            <span>About</span>
         </a>
     </li>
     <li class="nav-item">

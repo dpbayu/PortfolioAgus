@@ -18,8 +18,13 @@
                             <span><?= $user['type_job'] ?></span>
                         </li>
                         <li>
+                            <?php
+                                $birth_date = new DateTime($user['birth_date']);
+                                $selisih = date_diff($birth_date, new DateTime());
+                                $year = $selisih->y;
+                            ?>
                             <strong>Age:</strong>
-                            <span><?= $user['birth_date'] ?> Years</span>
+                            <span><?= $year. " Years " ?></span>
                         </li>
                         <li>
                             <strong>Residence:</strong>
@@ -32,10 +37,10 @@
                         <p><?= $user['about_desc'] ?></p>
                     </div>
                     <div class='about-btns'>
-                        <a href='#' class='btn-custom btn-color'>
+                        <a href='admin/assets/file/<?= $user['pdf_cv'] ?>' target="_blank" class='btn-custom btn-color'>
                             Download Resume
                         </a>
-                        <a href='#' class='btn-custom btn-color'>
+                        <a href='#contact' class='btn-custom btn-color section-toggle' data-section='contact'>
                             Hire Me
                         </a>
                     </div>
