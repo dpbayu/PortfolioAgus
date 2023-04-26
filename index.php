@@ -2,7 +2,7 @@
 <?php
 require 'function.php';
 // User
-$query = "SELECT * FROM tbl_user, tbl_service, tbl_skill, tbl_resume";
+$query = "SELECT * FROM tbl_user";
 $run = mysqli_query($db,$query);
 $user = mysqli_fetch_array($run);
 ?>
