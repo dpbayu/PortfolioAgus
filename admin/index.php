@@ -32,7 +32,7 @@ $user_data = mysqli_fetch_array($run);
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Home</h1>
                     </div>
-                    <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
+                    <form class="forms-sample" action="function.php" method="POST">
                         <div class="form-group mb-3">
                             <label class="form-label" for="fullname">Fullname</label>
                             <input class="form-control" type="text" id="fullname" name="fullname"
@@ -40,8 +40,7 @@ $user_data = mysqli_fetch_array($run);
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="home_desc">Home Description</label>
-                            <input class="form-control" type="text" id="home_desc" name="home_desc"
-                                value="<?= $user_data['home_desc'] ?>">
+                            <textarea class="form-control" id="home_desc" name="home_desc"><?= $user_data['home_desc'] ?></textarea>
                         </div>
                         <button type="submit" name="update-home" class="btn btn-success me-2">Update</button>
                     </form>
