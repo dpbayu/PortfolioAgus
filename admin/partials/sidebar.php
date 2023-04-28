@@ -19,10 +19,10 @@
             <span>About</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item <?php if ($page == 'resume'){ echo 'active'; } ?>">
+        <a class="nav-link" href="resume.php">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
+            <span>Resume</span>
         </a>
     </li>
     <li class="nav-item">

@@ -89,4 +89,24 @@ if (isset($_POST['addSkill'])) {
     echo "<script>window.location='about.php?success=Data successfuly updated!';</script>";
 }
 // Add & Edit Skill End
+
+// Add & Edit Resume Start
+if (isset($_POST['addResume'])) {
+    $type_resume = trim(mysqli_real_escape_string($db, $_POST['type_resume']));
+    $title_resume = trim(mysqli_real_escape_string($db, $_POST['title_resume']));
+    $org_resume = trim(mysqli_real_escape_string($db, $_POST['org_resume']));
+    $time_resume = trim(mysqli_real_escape_string($db, $_POST['time_resume']));
+    $desc_resume = trim(mysqli_real_escape_string($db, $_POST['desc_resume']));
+    mysqli_query($db, "INSERT INTO tbl_resume (id, type_resume, title_resume, org_resume, time_resume, desc_resume) VALUES ('', '$type_resume', '$title_resume', '$org_resume', '$time_resume', '$desc_resume')");
+        echo "<script>window.location='resume.php?success=Data successfuly added!';</script>";
+} else if (isset($_POST['editResume'])) {
+    $id = $_POST['id'];
+    $title_resume = trim(mysqli_real_escape_string($db, $_POST['title_resume']));
+    $org_resume = trim(mysqli_real_escape_string($db, $_POST['org_resume']));
+    $time_resume = trim(mysqli_real_escape_string($db, $_POST['time_resume']));
+    $desc_resume = trim(mysqli_real_escape_string($db, $_POST['desc_resume']));
+    mysqli_query($db, "UPDATE tbl_resume SET title_resume = '$title_resume', org_resume = '$org_resume', time_resume = '$time_resume', desc_resume = '$desc_resume' WHERE id = '$id'");
+    echo "<script>window.location='resume.php?success=Data successfuly updated!';</script>";
+}
+// Add & Edit Resume End
 ?>
