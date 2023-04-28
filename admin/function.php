@@ -74,4 +74,19 @@ if (isset($_POST['addService'])) {
     }
 }
 // Add & Edit Service End
+
+// Add & Edit Skill Start
+if (isset($_POST['addSkill'])) {
+    $skill_name = trim(mysqli_real_escape_string($db, $_POST['skill_name']));
+    $skill_bar = trim(mysqli_real_escape_string($db, $_POST['skill_bar']));
+    mysqli_query($db, "INSERT INTO tbl_skill (id, skill_name, skill_bar) VALUES ('', '$skill_name', '$skill_bar')");
+        echo "<script>window.location='about.php?success=Data successfuly added!';</script>";
+} else if (isset($_POST['editSkill'])) {
+    $id = $_POST['id'];
+    $skill_name = trim(mysqli_real_escape_string($db, $_POST['skill_name']));
+    $skill_bar = trim(mysqli_real_escape_string($db, $_POST['skill_bar']));
+    mysqli_query($db, "UPDATE tbl_skill SET skill_name = '$skill_name', skill_bar = '$skill_bar' WHERE id = '$id'");
+    echo "<script>window.location='about.php?success=Data successfuly updated!';</script>";
+}
+// Add & Edit Skill End
 ?>

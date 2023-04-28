@@ -5,10 +5,6 @@ $page = 'about';
 $user = "SELECT * FROM tbl_user";
 $run = mysqli_query($db,$user);
 $user_data = mysqli_fetch_array($run);
-
-// $service = "SELECT * FROM tbl_service";
-// $run_service = mysqli_query($db,$user);
-// $user_service = mysqli_fetch_array($run_service);
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -123,25 +119,26 @@ $user_data = mysqli_fetch_array($run);
                                 <div class='col-md-4 mb-3 d-flex justify-content-center'>
                                     <div class='service w-100 border p-3'>
                                         <div class='icon'>
-                                            <img src="assets/img/<?= $service['img_service'] ?>" width="45%" height="45%">
+                                            <img src="assets/img/<?= $service['img_service'] ?>" width="45%"
+                                                height="45%">
                                         </div>
                                         <div class='content'>
                                             <h4><?= $service['title_service'] ?></h4>
                                             <p><?= $service['desc_service'] ?></p>
                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editModal<?= $service['id'] ?>">
+                                                data-bs-target="#editService<?= $service['id'] ?>">
                                                 Edit
                                             </button>
                                             <a onclick="return confirm('Are you sure delete this data ?')"
-                                            href="deleteService.php?id=<?= $service['id'] ?>"
-                                            class="btn btn-danger">
-                                            Delete
-                                        </a>
+                                                href="deleteService.php?id=<?= $service['id'] ?>"
+                                                class="btn btn-danger">
+                                                Delete
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Edit Modal Service Start -->
-                                <div class="modal fade" id="editModal<?= $service['id'] ?>" tabindex="-1"
+                                <div class="modal fade" id="editService<?= $service['id'] ?>" tabindex="-1"
                                     aria-labelledby="editModalLabel" aria-hidden="true">
                                     <form action="function.php" method="POST" enctype="multipart/form-data">
                                         <?php
@@ -159,7 +156,8 @@ $user_data = mysqli_fetch_array($run);
                                                 <div class="modal-body">
                                                     <div class="form-group col-12">
                                                         <div class="form-group mb-3 w-100">
-                                                            <input type="hidden" class="form-control" name="id" value="<?= $service['id'] ?>">
+                                                            <input type="hidden" class="form-control" name="id"
+                                                                value="<?= $service['id'] ?>">
                                                             <input type="file" class="form-control" name="img_service">
                                                             <img src="assets/img/<?= $service['img_service'] ?>"
                                                                 style="width: 400px; height: 250px; margin:10px">
@@ -220,7 +218,109 @@ $user_data = mysqli_fetch_array($run);
                         </div>
                     </form>
                     <!-- Add Service End -->
-                    <!-- Service End -->
+                    <!-- Skill Start -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Skill</h1>
+                    </div>
+                    <div class='section-block skills-block'>
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <?php
+                                    $id = @$_GET['id'];
+                                    $query_skill = "SELECT * FROM tbl_skill";
+                                    $run_skill = mysqli_query($db,$query_skill);
+                                    while ($skill = mysqli_fetch_array($run_skill)) {
+                                ?>
+                                <div class='col-md-6 mb-3'>
+                                    <div class='skill'>
+                                        <h4><?= $skill['skill_name'] ?></h4>
+                                        <div class='bar'>
+                                            <div class='percent' style='width:<?= $skill['skill_bar'] ?>%;'></div>
+                                        </div>
+                                        <div class="my-3">
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#editSkill<?= $skill['id'] ?>">
+                                                Edit
+                                            </button>
+                                            <a onclick="return confirm('Are you sure delete this data ?')"
+                                                href="deleteSkill.php?id=<?= $skill['id'] ?>" class="btn btn-danger">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Edit Modal Skill Start -->
+                                <div class="modal fade" id="editSkill<?= $skill['id'] ?>" tabindex="-1"
+                                    aria-labelledby="editModalLabel" aria-hidden="true">
+                                    <form action="function.php" method="POST">
+                                        <?php
+                                            $id = @$_GET['id'];
+                                            $sql_skill = mysqli_query($db, "SELECT * FROM tbl_skill WHERE id = '$id'");
+                                            $data = mysqli_fetch_array($sql_skill);
+                                        ?>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="editModalLabel">Modal title</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group col-12">
+                                                        <div class="form-group mb-3 w-100">
+                                                            <input type="hidden" class="form-control" name="id"
+                                                                value="<?= $skill['id'] ?>">
+                                                            <label class="form-label" for="skill_name">Skill
+                                                                Name</label>
+                                                            <input class="form-control" type="text" id="skill_name"
+                                                                name="skill_name" placeholder="Skill Name"
+                                                                value="<?= $skill['skill_name'] ?>">
+                                                        </div>
+                                                        <div class="form-group mb-3 w-100">
+                                                            <label class="form-label" for="skill_bar">Skill Bar</label>
+                                                            <input class="form-control" type="text" id="skill_bar"
+                                                                name="skill_bar" placeholder="Skill Bar"
+                                                                value="<?= $skill['skill_bar'] ?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary" name="editSkill">Save
+                                                        changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Edit Modal Skill End -->
+                                <?php 
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Service Start -->
+                    <form class="forms-sample mb-5" action="function.php" method="POST">
+                        <div class="row col-md-12 d-flex">
+                            <div class="col-sm-12 d-sm-block gap-5">
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="skill_name">Skill Name</label>
+                                    <input class="form-control" type="text" id="skill_name" name="skill_name"
+                                        placeholder="Skill Name">
+                                </div>
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="skill_bar">Skill Bar</label>
+                                    <input class="form-control" type="text" id="skill_bar" name="skill_bar"
+                                        placeholder="1-9" maxlength="3" pattern="[0-9]+">
+                                </div>
+                                <button class="btn btn-success" type="submit" name="addSkill">Add Skill</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Add Skill End -->
+                    <!-- Skill End -->
                 </div>
                 <!-- Content End -->
             </div>
