@@ -25,4 +25,10 @@
 <script src="assets/vendor/chart.js/Chart.min.js"></script>
 <script src="assets/js/demo/chart-area-demo.js"></script>
 <script src="assets/js/demo/chart-pie-demo.js"></script>
+<script src='assets/js/jquery.min.js'></script>
+<script src='assets/js/jquery.shuffle.min.js'></script>
+<script src='assets/js/owl.carousel.min.js'></script>
+<script src='assets/js/jquery.magnific-popup.min.js'></script>
+<script src='assets/js/validator.min.js'></script>
+<script src='assets/js/script.js'></script>
 <!-- JS End -->

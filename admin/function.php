@@ -109,4 +109,28 @@ if (isset($_POST['addResume'])) {
     echo "<script>window.location='resume.php?success=Data successfuly updated!';</script>";
 }
 // Add & Edit Resume End
+
+// Add & Edit Portfolio Start
+if (isset($_POST['addPortfolio'])) {
+    $title_project = trim(mysqli_real_escape_string($db, $_POST['title_project']));
+    $desc_project = trim(mysqli_real_escape_string($db, $_POST['desc_project']));
+    $img_project = $_FILES['img_project']['name'];
+    move_uploaded_file($_FILES['img_project']['tmp_name'],"assets/img/portfolio/$img_project");
+    mysqli_query($db, "INSERT INTO tbl_portfolio (id, title_project, desc_project, img_project) VALUES ('', '$title_project', '$desc_project', '$img_project')");
+        echo "<script>window.location='portfolio.php?success=Data successfuly added!';</script>";
+} else if (isset($_POST['editPortfolio'])) {
+    $id = $_POST['id'];
+    $title_project = trim(mysqli_real_escape_string($db, $_POST['title_project']));
+    $desc_project = trim(mysqli_real_escape_string($db, $_POST['desc_project']));
+    $img_project = $_FILES['img_project']['name'];
+    if ($img_project != '') {
+        move_uploaded_file($_FILES['img_project']['tmp_name'],"assets/img/portfolio/$img_project");
+        mysqli_query($db, "UPDATE tbl_portfolio SET title_project = '$title_project', desc_project = '$desc_project', img_project = '$img_project' WHERE id = '$id'");
+        echo "<script>window.location='portfolio.php?success=Data successfuly updated!';</script>";
+    } else {
+        mysqli_query($db, "UPDATE tbl_portfolio SET title_project = '$title_project', desc_project = '$desc_project' WHERE id = '$id'");
+        echo "<script>window.location='portfolio.php?success=Data successfuly updated!';</script>";
+    }
+}
+// Add & Edit Portfolio End
 ?>

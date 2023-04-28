@@ -18,4 +18,9 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- TinyMCE -->
     <script type="text/javascript" src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='assets/css/linea.css'>
+	<link rel='stylesheet' type='text/css' href='assets/css/ionicons.min.css'>
+	<link rel='stylesheet' type='text/css' href='assets/css/owl.carousel.css'>
+	<link rel='stylesheet' type='text/css' href='assets/css/magnific-popup.css'>
+	<link rel='stylesheet' type='text/css' href='assets/css/style.css'>
 </head>

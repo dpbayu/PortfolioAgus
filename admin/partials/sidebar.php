@@ -25,10 +25,10 @@
             <span>Resume</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item <?php if ($page == 'portfolio'){ echo 'active'; } ?>">
+        <a class="nav-link" href="portfolio.php">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>Portfolio</span>
         </a>
     </li>
     <li class="nav-item">
