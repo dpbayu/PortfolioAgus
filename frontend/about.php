@@ -58,12 +58,12 @@
                 <?php 
                 $query_service = "SELECT * FROM tbl_service";
                 $run_service = mysqli_query($db,$query_service);
-                while ($service = mysqli_fetch_array($run_service)){
+                while ($service = mysqli_fetch_array($run_service)) {
                 ?>
                 <div class='col-md-4 mb-3 d-flex justify-content-center'>
                     <div class='service w-100'>
                         <div class='icon'>
-                            <i class='icon-basic-photo'></i>
+                            <img src="admin/assets/img/<?= $service['img_service'] ?>" width="50%" alt="icon">
                         </div>
                         <div class='content'>
                             <h4><?= $service['title_service'] ?></h4>

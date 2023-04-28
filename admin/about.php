@@ -5,6 +5,10 @@ $page = 'about';
 $user = "SELECT * FROM tbl_user";
 $run = mysqli_query($db,$user);
 $user_data = mysqli_fetch_array($run);
+
+// $service = "SELECT * FROM tbl_service";
+// $run_service = mysqli_query($db,$user);
+// $user_service = mysqli_fetch_array($run_service);
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -50,39 +54,50 @@ $user_data = mysqli_fetch_array($run);
                         </div>';
                     }
                     ?>
-                    <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="fullname">Fullname</label>
-                            <input class="form-control" type="text" id="fullname" name="fullname"
-                                value="<?= $user_data['fullname'] ?>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="job">Job</label>
-                            <input class="form-control" type="text" id="job" name="job"
-                                value="<?= $user_data['job'] ?>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="type_job">Job Type</label>
-                            <select class="form-control" name="type_job" id="type_job">
-                                <option value="Full Time" <?= $user_data['type_job'] == "Full Time" ? "selected" : '' ?>>Full Time</option>
-                                <option value="Part Time" <?= $user_data['type_job'] == "Part Time" ? "selected" : '' ?>>Part Time</option>
-                                <option value="Freelance" <?= $user_data['type_job'] == "Freelance" ? "selected" : '' ?>>Freelance</option>
-                            </select>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="birth_date">Birth Date</label>
-                            <input class="form-control" type="date" id="birth_date" name="birth_date"
-                                value="<?= date('Y-m-d',strtotime($user_data["birth_date"])) ?>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="residence">Residence</label>
-                            <input class="form-control" type="text" id="residence" name="residence"
-                                value="<?= $user_data['residence'] ?>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="about_desc">About Description</label>
-                            <textarea class="form-control" id="about_desc"
-                                name="about_desc"><?= $user_data['about_desc'] ?></textarea>
+                    <!-- About Start -->
+                    <form class="forms-sample mb-5" action="function.php" method="POST" enctype="multipart/form-data">
+                        <div class="row col-md-12 d-flex">
+                            <div class="col-sm-12 d-sm-block col-md-6 gap-5">
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="fullname">Fullname</label>
+                                    <input class="form-control" type="text" id="fullname" name="fullname"
+                                        value="<?= $user_data['fullname'] ?>">
+                                </div>
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="job">Job</label>
+                                    <input class="form-control" type="text" id="job" name="job"
+                                        value="<?= $user_data['job'] ?>">
+                                </div>
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="type_job">Job Type</label>
+                                    <select class="form-control" name="type_job" id="type_job">
+                                        <option value="Full Time"
+                                            <?= $user_data['type_job'] == "Full Time" ? "selected" : '' ?>>Full Time
+                                        </option>
+                                        <option value="Part Time"
+                                            <?= $user_data['type_job'] == "Part Time" ? "selected" : '' ?>>Part Time
+                                        </option>
+                                        <option value="Freelance"
+                                            <?= $user_data['type_job'] == "Freelance" ? "selected" : '' ?>>Freelance
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="birth_date">Birth Date</label>
+                                    <input class="form-control" type="date" id="birth_date" name="birth_date"
+                                        value="<?= date('Y-m-d',strtotime($user_data["birth_date"])) ?>">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="form-label" for="residence">Residence</label>
+                                    <input class="form-control" type="text" id="residence" name="residence"
+                                        value="<?= $user_data['residence'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3 col-md-6">
+                                <label class="form-label" for="about_desc">About Description</label>
+                                <textarea class="form-control" id="about_desc"
+                                    name="about_desc"><?= $user_data['about_desc'] ?></textarea>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="pdf_cv">Upload CV</label>
@@ -91,6 +106,120 @@ $user_data = mysqli_fetch_array($run);
                         </div>
                         <button type="submit" name="update-about" class="btn btn-success me-2">Update</button>
                     </form>
+                    <!-- About End -->
+                    <!-- Service Start -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Service</h1>
+                    </div>
+                    <div class='section-block services-block'>
+                        <div class='container-fluid'>
+                            <div class='row d-flex justify-content-center'>
+                                <?php
+                                    $id = @$_GET['id'];
+                                    $query_service = "SELECT * FROM tbl_service";
+                                    $run_service = mysqli_query($db,$query_service);
+                                    while ($service = mysqli_fetch_array($run_service)) {
+                                ?>
+                                <div class='col-md-4 mb-3 d-flex justify-content-center'>
+                                    <div class='service w-100 border p-3'>
+                                        <div class='icon'>
+                                            <img src="assets/img/<?= $service['img_service'] ?>" width="45%">
+                                        </div>
+                                        <div class='content'>
+                                            <h4><?= $service['title_service'] ?></h4>
+                                            <p><?= $service['desc_service'] ?></p>
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#editModal<?= $service['id'] ?>">
+                                                Edit
+                                            </button>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Edit Modal Service Start -->
+                                <div class="modal fade" id="editModal<?= $service['id'] ?>" tabindex="-1"
+                                    aria-labelledby="editModalLabel" aria-hidden="true">
+                                    <form action="function.php" method="POST" enctype="multipart/form-data">
+                                        <?php
+                                            $id = @$_GET['id'];
+                                            $sql_service = mysqli_query($db, "SELECT * FROM tbl_service WHERE id = '$id'");
+                                            $data = mysqli_fetch_array($sql_service);
+                                        ?>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="editModalLabel">Modal title</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group col-12">
+                                                        <div class="form-group mb-3 w-100">
+                                                            <input type="hidden" class="form-control" name="id" value="<?= $service['id'] ?>">
+                                                            <input type="file" class="form-control" name="img_service">
+                                                            <img src="assets/img/<?= $service['img_service'] ?>"
+                                                                style="width: 400px; height: 250px; margin:10px">
+                                                        </div>
+                                                        <div class="form-group mb-3 w-100">
+                                                            <label class="form-label" for="title_service">Title
+                                                                Service</label>
+                                                            <input class="form-control" type="text" id="title_service"
+                                                                name="title_service" placeholder="Title Service"
+                                                                value="<?= $service['title_service'] ?>">
+                                                        </div>
+                                                        <div class="form-group mb-3 w-100">
+                                                            <label class="form-label" for="desc_service">Description
+                                                                Service</label>
+                                                            <input class="form-control" type="text" id="desc_service"
+                                                                name="desc_service" placeholder="Description Service"
+                                                                value="<?= $service['desc_service'] ?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary"
+                                                        name="editService">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Edit Modal Service End -->
+                                <?php 
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Service Start -->
+                    <form class="forms-sample mb-5" action="function.php" method="POST" enctype="multipart/form-data">
+                        <div class="row col-md-12 d-flex">
+                            <div class="col-sm-12 d-sm-block gap-5">
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="title_service">Title Service</label>
+                                    <input class="form-control" type="text" id="title_service" name="title_service"
+                                        placeholder="Title Service">
+                                </div>
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="desc_service">Description Service</label>
+                                    <input class="form-control" type="text" id="desc_service" name="desc_service"
+                                        placeholder="Description Service">
+                                </div>
+                                <div class="form-group mb-3 w-100">
+                                    <label class="form-label" for="img_service">Logo Service</label>
+                                    <input type="file" class="form-control" id="img_service" name="img_service">
+                                </div>
+                                <button class="btn btn-success" type="submit" name="addService">Add Service</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Add Service End -->
+                    <!-- Service End -->
                 </div>
                 <!-- Content End -->
             </div>
