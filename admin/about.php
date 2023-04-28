@@ -123,7 +123,7 @@ $user_data = mysqli_fetch_array($run);
                                 <div class='col-md-4 mb-3 d-flex justify-content-center'>
                                     <div class='service w-100 border p-3'>
                                         <div class='icon'>
-                                            <img src="assets/img/<?= $service['img_service'] ?>" width="45%">
+                                            <img src="assets/img/<?= $service['img_service'] ?>" width="45%" height="45%">
                                         </div>
                                         <div class='content'>
                                             <h4><?= $service['title_service'] ?></h4>
@@ -132,10 +132,11 @@ $user_data = mysqli_fetch_array($run);
                                                 data-bs-target="#editModal<?= $service['id'] ?>">
                                                 Edit
                                             </button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal">
-                                                Delete
-                                            </button>
+                                            <a onclick="return confirm('Are you sure delete this data ?')"
+                                            href="deleteService.php?id=<?= $service['id'] ?>"
+                                            class="btn btn-danger">
+                                            Delete
+                                        </a>
                                         </div>
                                     </div>
                                 </div>

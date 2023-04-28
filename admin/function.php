@@ -67,10 +67,10 @@ if (isset($_POST['addService'])) {
     if ($img_service != '') {
         move_uploaded_file($_FILES['img_service']['tmp_name'],"assets/img/$img_service");
         mysqli_query($db, "UPDATE tbl_service SET title_service = '$title_service', desc_service = '$desc_service', img_service = '$img_service' WHERE id = '$id'");
-        echo "<script>window.location='about.php?success=Data successfuly added!';</script>";
+        echo "<script>window.location='about.php?success=Data successfuly updated!';</script>";
     } else {
         mysqli_query($db, "UPDATE tbl_service SET title_service = '$title_service', desc_service = '$desc_service' WHERE id = '$id'");
-        echo "<script>window.location='about.php?success=Data successfuly added!';</script>";
+        echo "<script>window.location='about.php?success=Data successfuly updated!';</script>";
     }
 }
 // Add & Edit Service End
