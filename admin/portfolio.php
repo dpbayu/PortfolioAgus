@@ -1,8 +1,13 @@
 <!-- PHP -->
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 require '../function.php';
 $page = 'portfolio';
-$user = "SELECT * FROM tbl_portfolio";
+$user = "SELECT * FROM tbl_user, tbl_portfolio";
 $run = mysqli_query($db,$user);
 $user_data = mysqli_fetch_array($run);
 ?>

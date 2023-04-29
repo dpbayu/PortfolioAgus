@@ -1,8 +1,13 @@
 <!-- PHP -->
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 require '../function.php';
 $page = 'resume';
-$user = "SELECT * FROM tbl_resume";
+$user = "SELECT * FROM tbl_user, tbl_resume";
 $run = mysqli_query($db,$user);
 $user_data = mysqli_fetch_array($run);
 ?>

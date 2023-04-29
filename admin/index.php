@@ -1,5 +1,10 @@
 <!-- PHP -->
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 require '../function.php';
 $page = 'home';
 $user = "SELECT * FROM tbl_user";
