@@ -29,7 +29,7 @@ if (isset($_POST['update-about'])) {
     if (in_array($extention, $extention_file) === true) {
         if ($ukuran < 2044070) {
             move_uploaded_file($file_tmp, 'assets/file/'.$pdf_cv);
-            $query = mysqli_query($db, "UPDATE tbl_user SET fullname = '$fullname', job = '$job., type_job = '$type_job', birth_date = '$birth_date', residence = '$residence', pdf_cv = '$pdf_cv' WHERE id = 1");
+            $query = mysqli_query($db, "UPDATE tbl_user SET fullname = '$fullname', job = '$job', type_job = '$type_job', birth_date = '$birth_date', residence = '$residence', pdf_cv = '$pdf_cv' WHERE id = 1");
             if ($query) {
                 echo "<script>window.location='about.php?success=Data successfuly updated!';</script>";
                 exit();                
