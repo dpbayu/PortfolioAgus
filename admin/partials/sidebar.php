@@ -9,7 +9,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <li class="nav-item <?php if ($page == 'home'){ echo 'active'; } ?>">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="home.php">
             <i class="bi bi-house">
             </i> <span>Home</span></a>
     </li>
@@ -36,6 +36,13 @@
             <i class="bi bi-person-rolodex"></i>
             <span>Contact</span></a>
     </li>
+    <li class="nav-item <?php if ($page == 'profile'){ echo 'active'; } ?>">
+        <a class="nav-link" href="profile.php">
+            <i class="bi bi-person"></i>
+            <span>Profile</span></a>
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
     <li class="nav-item">
         <a class="nav-link" href="logout.php">
             <i class="bi bi-box-arrow-left"></i>

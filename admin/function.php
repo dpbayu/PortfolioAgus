@@ -146,4 +146,40 @@ if (isset($_POST['update-contact'])) {
     }
 }
 // Update Contact Page End
+
+// Update Profile Start
+if (isset($_POST['update-profile'])) {
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+    $img_icon = $_FILES['img_icon']['name'];
+    $imgtemp = $_FILES['img_icon']['tmp_name'];
+    if ($imgtemp=='') {
+        $q = "SELECT * FROM tbl_admin WHERE id = 1";
+        $r = mysqli_query($db,$q);
+        $d = mysqli_fetch_array($r);
+        $img_icon = $d['img_icon'];
+    }
+    move_uploaded_file($imgtemp,"assets/img/$img_icon");
+    if (empty($username)) {
+        echo "Field still empty";
+    } else {
+            if (empty($password)) {
+                $sql = "UPDATE tbl_admin SET username = '$username', img_icon = '$img_icon' WHERE id = 1";
+                if (mysqli_query($db, $sql)) {
+                    echo "<script>document.location.href = 'profile.php?success=Succesfully updated!';</script>";
+                } else {
+                    echo "Error";
+                }
+            } else {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $sql2 = "UPDATE tbl_admin SET username = '$username', password = '$hash' WHERE id = 1";
+                if (mysqli_query($db, $sql2)) {
+                    echo "<script>document.location.href = 'profile.php?success=Password succesfully updated!';</script>";
+                } else {
+                echo "error";
+            }
+        }
+    }
+}
+// Update Profile End
 ?>

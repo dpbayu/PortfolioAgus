@@ -32,6 +32,9 @@
             <li>
                 <a href='#contact' class='section-toggle' data-section='contact'>Contact</a>
             </li>
+            <li>
+                <a href='admin/index.php'target="_blank" class='section-toggle'>Admin</a>
+            </li>
         </ul>
     </div>
 </div>
