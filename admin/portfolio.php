@@ -60,7 +60,7 @@ $user_data = mysqli_fetch_array($run);
                                         $run_portfolio = mysqli_query($db,$query_portfolio);
                                         while ($portfolio = mysqli_fetch_array($run_portfolio)) {
                                     ?>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-3">
                                         <img src="assets/img/portfolio/<?= $portfolio['img_project'] ?>" width="100%">
                                         <h4><?= $portfolio['title_project'] ?></h4>
                                         <p><?= $portfolio['desc_project'] ?></p>

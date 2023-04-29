@@ -31,10 +31,10 @@
             <span>Portfolio</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="charts.php">
+    <li class="nav-item <?php if ($page == 'contact'){ echo 'active'; } ?>">
+        <a class="nav-link" href="contact.php">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
+            <span>Contact</span></a>
     </li>
     <li class="nav-item <?php if ($page == 'profile'){ echo 'active'; } ?>">
         <a class="nav-link" href="profile.php">

@@ -133,4 +133,17 @@ if (isset($_POST['addPortfolio'])) {
     }
 }
 // Add & Edit Portfolio End
+
+// Update Contact Page Start
+if (isset($_POST['update-contact'])) {
+    $residence = mysqli_real_escape_string($db,$_POST['residence']);
+    $phone = mysqli_real_escape_string($db,$_POST['phone']);
+    $email = mysqli_real_escape_string($db,$_POST['email']);
+    $query = "UPDATE tbl_user SET residence = '$residence', phone = '$phone', email = '$email' WHERE id = 1";
+    $run = mysqli_query($db,$query);
+    if ($run) {
+        echo "<script>document.location.href = 'contact.php?success=Succesfully updated!';</script>";
+    }
+}
+// Update Contact Page End
 ?>
