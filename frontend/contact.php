@@ -7,41 +7,26 @@
             <div class='row'>
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="contact-form" data-toggle="validator" method="post" action="mail.php"
-                            novalidate="true">
-                            <div id="contact-form-result"></div>
+                        <form action="https://formsubmit.co/dwiputrabayu19@gmail.com" method="POST">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name" name="name"
-                                            required="">
-                                        <div class="help-block with-errors"></div>
+                                        <input type="text" class="form-control" placeholder="Name" name="name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" name="email"
-                                            required="">
-                                        <div class="help-block with-errors"></div>
+                                        <input type="email" class="form-control" placeholder="Email" name="email" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Subject" name="subject"
-                                    required="">
-                                <div class="help-block with-errors"></div>
+                                    <textarea name="message" class="form-control" placeholder="Message" rows="5" required></textarea>
                             </div>
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Message" name="message" rows="5"
-                                    required=""></textarea>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group text-center">
-                                <button type="submit" name="submit" id="submit" class="btn-custom btn-color disabled"
-                                    style="pointer-events: all; cursor: pointer;">
-                                    Send Message
-                                </button>
-                            </div>
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="http://localhost/PortfolioAgus/#contact">
+                            <button type="submit" class="btn-color btn-custom">Submit</button>
                         </form>
                     </div>
                 </div>
