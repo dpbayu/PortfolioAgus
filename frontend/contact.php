@@ -7,7 +7,7 @@
             <div class='row'>
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form action="https://formsubmit.co/dwiputrabayu19@gmail.com" method="POST">
+                        <form action="https://formsubmit.co/harwinto56@gmail.com" method="POST">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

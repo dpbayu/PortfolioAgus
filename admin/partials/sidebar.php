@@ -9,7 +9,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <li class="nav-item <?php if ($page == 'home'){ echo 'active'; } ?>">
-        <a class="nav-link" href="home.php">
+        <a class="nav-link" href="index.php">
             <i class="bi bi-house">
             </i> <span>Home</span></a>
     </li>
